@@ -1,0 +1,48 @@
+ .center-container{
+/*
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+*/
+        }
+        .top-row-div{
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        .img-card{
+            height: 180px;
+            border-top-left-radius: 30px;
+        }
+        .second-row-div{
+            padding: 30px;
+            display: flex;
+            justify-content: center;
+        }
+        .card{
+            border-top-left-radius: 30px;
+            border-bottom-right-radius: 30px;
+        }     
+        .card-parent-div{
+            position: relative;
+            text-align: center;
+            color: white;
+        }
+        .centered {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 25px;
+            font-family: 'Josefin Sans', sans-serif;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+        
+        .second-row-card{
+            max-width: 600px;
+        }
+        .badge{
+            font-size: 15px;
+        }
