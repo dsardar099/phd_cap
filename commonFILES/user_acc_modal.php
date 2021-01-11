@@ -1,8 +1,4 @@
-<style>
-    #inputNPass{
-        display: none;
-    }
-</style>
+
 <?php
     include('../db_file/db_conn.php');
 
@@ -21,19 +17,12 @@
         $home_adhaar = $user_home_data['adhaar'];
         $home_pan = $user_home_data['pan'];
         
-        $home_pass = $user_home_data['pass'];
-    }
-    
-    $bank_fetch_query = "select * from user_bank where user_id='$user_id'";
-    $bank_run_query = mysqli_query($con, $bank_fetch_query);
-    if($bank_run_query){
-        $user_bank_data = mysqli_fetch_assoc($bank_run_query);
+        $u_bank_name = $user_home_data['b_name'];
+        $u_bank_ifsc = $user_home_data['b_ifsc'];
+        $u_bank_accno = $user_home_data['b_acc'];
         
-        $u_bank_name = $user_bank_data['b_name'];
-        $u_bank_ifsc = $user_bank_data['ifsc'];
-        $u_bank_accno = $user_bank_data['accno'];
+        
     }
-
  
 ?>
 
@@ -48,7 +37,7 @@
       <div class="modal-body">
             
           
-    <form action="../home.php" method="POST">
+    <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
             
             <div class="row">
                 <div class="col-lg-6 col-12">
@@ -66,7 +55,7 @@
                     <input type="number" id="inputPhone" class="form-control" name="h_phone" placeholder="Phone No" value="<?php echo $home_phone ?>" required><br>
                 </div>
                 <div class="col-lg-6 col-12">
-                    <label for="inputDOB">DOB</label>
+                    <label for="inputDOB">Date of Birth</label>
                     <input type="date" id="inputDOB" class="form-control" name="h_dob" placeholder="Email address" value="<?php echo $home_dob ?>" required><br>
                 </div>
                 
@@ -78,32 +67,9 @@
                 </div>
                 <div class="col-lg-6 col-12">
                     <label for="inputPan" >Pan Number</label>
-                    <input type="email" id="inputPan" class="form-control" name="h_pan" placeholder="Pan number" value="<?php echo $home_pan ?>" required><br>       
+                    <input type="text" id="inputPan" class="form-control" name="h_pan" placeholder="Pan number" value="<?php echo $home_pan ?>" required><br>       
                 </div>
-            </div>
-            
-            <div class="row" style="padding: 0px 20px">
-                <button class="btn btn-outline-success" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-                    Change Password
-                </button>
-                
-                
-                <div class="collapse" id="collapseExample">
-                    <div class=" card-body">
-                        <div class="row">
-                            <div class="col-lg-12 col-12">
-                                <div class="input-group mb-3" id="current_pass">
-                                  <input type="password" class="form-control" placeholder="Current Password" aria-label="Current Password" aria-describedby="check_button" name="h_c_pass" id="inputCPass">
-                                  <button class="btn btn-outline-secondary" type="button" id="check_button" name="check">Check</button>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 col-12">
-                                <input type="password" id="inputNPass" class="form-control new_pass" name="h_n_pass" placeholder="New Password" value="" required>                                              
-                            </div>
-                        </div>
-                    </div>  
-                </div>
-            </div>
+            </div>          
                        
             <hr>
             
@@ -119,7 +85,7 @@
                             <div class="row">
                                 <div class="col-lg-6 col-12">
                                     <label for="bankname" >Name Of The Bank</label>
-                                    <input type="text" id="bankname" class="form-control" name="h_bank_name" placeholder="Bank Name" value="<?php echo $u_bank_name ?>" required ><br>
+                                    <input type="text" id="bankname" class="form-control" name="h_bank_name" placeholder="Bank Name" value="<?php echo $u_bank_name ?>"  ><br>
                                 </div>
                                 <div class="col-lg-6 col-12">
                                     <label for="ifsc_no">IFSC Number</label>
@@ -129,20 +95,63 @@
                             <div class="row">
                                 <div class="col-lg-12 col-12">
                                     <label for="accno" >Bank Account Number</label>
-                                    <input type="number" id="accno" class="form-control" name="h_accno" placeholder="Bank Acc No" value="<?php echo $u_bank_accno ?>" required ><br>
+                                    <input type="number" id="accno" class="form-control" name="h_accno" placeholder="Bank Acc No" value="<?php echo $u_bank_accno ?>"  ><br>
                                 </div>
                             </div>
                       </div>
                     </div>
                   </div>
             </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="submit" class="btn btn-success" name="save_data">Save</button>
+                </div>
         
         </form>        
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success" name="save_data">Save</button>
-      </div>
+      
     </div>
   </div>
 </div>
+
+<?php
+    
+    if(isset($_POST['save_data'])){
+        $update_name = mysqli_real_escape_string($con, $_POST['h_name']);
+        $update_email = mysqli_real_escape_string($con, $_POST['h_email']);
+        $update_phone = mysqli_real_escape_string($con, $_POST['h_phone']);
+        $update_dob = mysqli_real_escape_string($con, $_POST['h_dob']);
+        $update_adhaar = mysqli_real_escape_string($con, $_POST['h_adhaar']);
+        $update_pan = mysqli_real_escape_string($con, $_POST['h_pan']);
+        
+        $update_b_name = mysqli_real_escape_string($con, $_POST['h_bank_name']);
+        $update_b_ifsc = mysqli_real_escape_string($con, $_POST['h_ifsc']);
+        $update_b_accno = mysqli_real_escape_string($con, $_POST['h_accno']);
+        
+        $update_userdata_query = "update userdata set name='$update_name', email='$update_email', phone='$update_phone', dob='$update_dob', adhaar='$update_adhaar', pan='$update_pan', b_name='$update_b_name', b_ifsc='$update_b_ifsc', b_acc = '$update_b_accno' where id=$user_id";
+        
+        $run_userdata_update_query = mysqli_query($con, $update_userdata_query);
+        if($run_userdata_update_query){
+            ?>
+                <script>
+                    alert("updated  done");
+                   
+                </script>            
+            <?php
+            header("Refresh:0");
+        }
+        else{
+            ?>
+                <script>
+                    alert("updated not done");
+                </script>
+            <?php
+            
+        }
+        
+    }
+    
+    
+    
+?>
+

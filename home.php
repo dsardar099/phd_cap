@@ -4,7 +4,7 @@
     include('external_links.php');
     include('db_file/db_conn.php');
     include('commonFILES/user_navbar.php');
-include('commonFILES/user_acc_modal.php');
+    include('commonFILES/user_acc_modal.php');
 ?>
 
 <!DOCTYPE html>
@@ -94,35 +94,7 @@ include('commonFILES/user_acc_modal.php');
     </div>
     
     
-    <?php
-    if(isset($_POST['check'])){
-        check_pass();
-    }
     
-    function check_pass(){
-        ?>
-            <script>
-                alert('aaaa');
-            </script>
-        <?php
-        $h_current_pass = mysqli_real_escape_string($con, $_POST['h_c_pass']);
-        
-        $encryp_h_current_pass = password_hash($h_current_pass, PASSWORD_BCRYPT);
-        if($encryp_h_current_pass == $home_pass){
-            ?>
-            <script>
-                document.getElementById("current_pass").style.display = 'none';
-                document.getElementById("inputNPass").style.display = 'block';
-            </script>
-            <?php
-        }
-        
-    }
-                           
-    
-
-
-?>
     
 </body>
 </html>
