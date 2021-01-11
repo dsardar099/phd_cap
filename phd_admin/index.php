@@ -22,11 +22,7 @@
 
         <label for="inputPassword" class="visually-hidden">Password</label>
         <input type="password" id="inputPassword" class="form-control" placeholder="Password" name='a_l_pass' required>
-        <div class="checkbox mb-3">
-        <label>
-            <input type="checkbox" value="remember-me" required> Remember me
-        </label>
-        </div>
+        
         
         <button class="w-100 btn btn-lg btn-Success" type="submit" name="signin">Sign in</button>
         
