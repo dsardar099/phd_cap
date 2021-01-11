@@ -17,9 +17,7 @@ include('db_file/db_conn.php');
         .card-width {
             width: 100%;
         }
-
         @media (min-width: 768px) {
-
             /* For card in signup form */
             .card-width {
                 width: 50%;
@@ -85,7 +83,7 @@ include('db_file/db_conn.php');
                         <div class="col-12 col-md-6 text-center pt-2">
                             <div class="form-group input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+                                    <span class="input-group-text"> <i class="fa fa-calendar-o"></i></span>
                                 </div>
                                 <input name="u_dob" class="form-control" placeholder="DOB" type="date" required>
                             </div>
@@ -104,7 +102,7 @@ include('db_file/db_conn.php');
                         <div class="col-12 col-md-6 text-center pt-2">
                             <div class="form-group input-group">
                                 <div class="input-group-prepend">
-                                    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+                                    <span class="input-group-text"> <i class="fa fa-id-card-o"></i> </span>
                                 </div>
                                 <input name="u_pan" class="form-control" placeholder="pan number" type="number">
                             </div>
@@ -168,34 +166,19 @@ include('db_file/db_conn.php');
                 } else {
                     $encryp_u_pass = password_hash($u_pass, PASSWORD_BCRYPT);
 
-                    $insert_query = "insert into userdata(name,email,phone,gender,dob,adhaar,pan,pass) values('$u_name','$u_email','$u_phone','$u_gender','$u_dob','$u_adhaar','$u_pan','$encryp_u_pass')";
+                    $insert_query = "insert into userdata(name,email,phone,gender,dob,adhaar,pan,pass,b_name,b_ifsc,b_acc) values('$u_name','$u_email','$u_phone','$u_gender','$u_dob','$u_adhaar','$u_pan','$encryp_u_pass','','','')";
 
                     $res = mysqli_query($con, $insert_query);
                     if ($res) {
-
-                        $q = "SELECT `id` FROM `userdata` WHERE email='$u_email'";
-                        $r = mysqli_query($con, $q);
-                        $d = mysqli_fetch_assoc($r);
-                        $id = $d['id'];
-
-                        $q1 = "INSERT INTO `user_balance`(`user_id`, `m_pl`, `t_pl`, `e_w`, `b_k`) VALUES ('$id',0,0,0,0)";
-                        $r1 = mysqli_query($con, $q1);
-                        if ($r1 == 1) {
                     ?>
-                            <script>
-                                alert('Account Created Succesfully');
-                                window.location.replace('signin.php');
-                            </script>
-                        <?php
-                        } else {
-                        ?>
-                            <script>
-                                alert('res1 Some problem occurred, please try again');
-                            </script>
-                        <?php
-                        }
+                        
+                        <script>
+                            alert('Account Created Succesfully');
+                            window.location.replace('signin.php');
+                        </script>
+                    <?php
                     } else {
-                        ?>
+                    ?>
                         <script>
                             alert('res Some problem occurred, please try again');
                         </script>
