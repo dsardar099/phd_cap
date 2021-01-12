@@ -23,16 +23,24 @@ include('db_file/db_conn.php');
                 width: 50%;
             }
         }
+        
+        body{
+            background: url(assets/img/home1.jpg) no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center center;
+        }
+        
     </style>
 
 </head>
 
 <body>
     <div class="container">
-        <div class="card bg-light w-100">
+        <div class="card  w-100" style="background-color: rgba(29,33,36,.8)">
             <article class="card-body mx-auto card-width">
-                <h4 class="card-title mt-3 text-center">Create Account</h4>
-                <p class="text-center">Get started with your free account</p>
+                <h4 class="card-title mt-3 text-center text-light">Create Account</h4>
+                <p class="text-center text-light">Get started with your free account</p>
                 <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-6 text-center pt-2">
@@ -65,15 +73,15 @@ include('db_file/db_conn.php');
                         <div class="col-12 col-md-6 text-center pt-2">
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="u_gender" id="inlineRadio_male" value="m" required>
-                                <label class="form-check-label" for="inlineRadio_male">Male</label>
+                                <label class="form-check-label text-light" for="inlineRadio_male">Male</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="u_gender" id="inlineRadio_female" value="f" required>
-                                <label class="form-check-label" for="inlineRadio_female">Female</label>
+                                <label class="form-check-label text-light" for="inlineRadio_female">Female</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="u_gender" id="inlineRadio_other" value="o" required>
-                                <label class="form-check-label" for="inlineRadio_other">Other</label>
+                                <label class="form-check-label text-light" for="inlineRadio_other">Other</label>
                             </div>
                         </div>
                     </div>
@@ -120,14 +128,14 @@ include('db_file/db_conn.php');
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-5 text-center pt-4">
                             <div class="form-group">
-                                <button name="u_submit" type="submit" class="w-100 btn btn-lg btn-Success"> Create Account </button>
+                                <button name="u_submit" type="submit" class="w-100 btn btn-lg btn-Success "> Create Account </button>
                             </div>
                         </div>
                     </div>
 
                     <div class="row justify-content-center">
                         <div class="col-12 col-md-6 text-center pt-2">
-                            <p class="text-center">Have an account? <a href="signin.php">Log In</a> </p>
+                            <p class="text-center text-light">Have an account? <a href="signin.php">Log In</a> </p>
                         </div>
                     </div>
 
@@ -170,14 +178,33 @@ include('db_file/db_conn.php');
 
                     $res = mysqli_query($con, $insert_query);
                     if ($res) {
-                    ?>
+                     
                         
-                        <script>
-                            alert('Account Created Succesfully');
-                            window.location.replace('signin.php');
-                        </script>
-                    <?php
-                    } else {
+                        $q = "SELECT `id` FROM `userdata` WHERE email='$u_email'";
+                        $r = mysqli_query($con, $q);
+                        $d = mysqli_fetch_assoc($r);
+                        $id = $d['id'];
+
+                        $q1 = "INSERT INTO `user_balance`(`user_id`, `m_pl`, `t_pl`, `e_w`, `b_k`) VALUES ('$id',0,0,0,0)";
+                        
+                        $r1 = mysqli_query($con, $q1);
+                        if ($r1 == 1) {
+                        ?>
+                            <script>
+                                alert('Account Created Succesfully');
+                                window.location.replace('signin.php');
+                            </script>
+                        <?php
+                        }
+                        else{
+                            ?>
+                            <script>
+                                alert('r Some problem occurred, please try again');
+                            </script>
+                            <?php
+                        }
+                    } 
+                    else {
                     ?>
                         <script>
                             alert('res Some problem occurred, please try again');

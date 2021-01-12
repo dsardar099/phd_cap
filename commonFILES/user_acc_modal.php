@@ -26,6 +26,13 @@
  
 ?>
 
+<style>
+    .modal-backdrop {
+        background-color: grey;
+        opacity: .2;
+}
+</style>
+
 <!-- Modal -->
 <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -134,16 +141,16 @@
         if($run_userdata_update_query){
             ?>
                 <script>
-                    alert("updated  done");
-                   
+                    alert("Account Updated Succesfully");
+                    window.location.replace('home.php'); 
                 </script>            
             <?php
-            header("Refresh:0");
+            
         }
         else{
             ?>
                 <script>
-                    alert("updated not done");
+                    alert("Failed To Update, Please Try Again");
                 </script>
             <?php
             

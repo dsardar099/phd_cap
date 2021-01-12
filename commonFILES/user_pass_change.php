@@ -23,16 +23,14 @@
     }
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user signup || phd capital</title>
-</head>
-<body>
-
+<div class="modal fade" id="changepass" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">pass</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
           
         <div class="row" >
             <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post"> 
@@ -54,6 +52,11 @@
                 </div>
             </form>
         </div>
+    </div>
+      
+    </div>
+  </div>
+</div>
           
      
 
@@ -68,7 +71,7 @@
         if($pass_verify){
             ?>
                 <script>
-                    alert("same");
+                    //alert("same");
                     document.getElementById('update_pass').style.display = 'block';
                 </script>
 
@@ -89,7 +92,7 @@
             ?>
             <script>
                 alert('Changeed Succesfully');
-                window.reload();
+                //window.reload();
             </script>
             <?php
                                 

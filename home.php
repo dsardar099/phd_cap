@@ -5,6 +5,7 @@
     include('db_file/db_conn.php');
     include('commonFILES/user_navbar.php');
     include('commonFILES/user_acc_modal.php');
+    include('commonFILES/user_pass_change.php');
 ?>
 
 <!DOCTYPE html>
@@ -15,7 +16,13 @@
     <title>home</title>
     <link rel="stylesheet" href="assets/home.css">
     <style>
-       
+        body{
+            background: url(assets/img/home.jpg) no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center center;
+        }
+        
         
     </style>
 </head>
@@ -26,10 +33,10 @@
 
     <div class="container center-container">
         <div class="row top-row">
-            <div class="col-lg-3 col-12 bg-primary top-row-div">
+            <div class="col-lg-3 col-12  top-row-div">
                 <div class="card card_radius" style="width: 18rem;">
                     <div class="card-parent-div">
-                        <img src="assets/img/a.jpg" class="card-img-top img-card" alt="...">
+                        <img src="assets/img/1.jpg" class="card-img-top img-card" alt="...">
                         <div class="centered">Monthly P/L</div>
                     </div>                  
                     <div class="card-body">
@@ -39,10 +46,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-12 bg-success top-row-div">
+            <div class="col-lg-3 col-12  top-row-div">
                 <div class="card card_radius" style="width: 18rem;">
                     <div class="card-parent-div">
-                        <img src="assets/img/a.jpg" class="card-img-top img-card" alt="...">
+                        <img src="assets/img/2.png" class="card-img-top img-card" alt="...">
                         <div class="centered">Today P/L</div>
                     </div>
                     <div class="card-body">
@@ -52,10 +59,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-12 bg-warning top-row-div">
+            <div class="col-lg-3 col-12  top-row-div">
                 <div class="card card_radius" style="width: 18rem;">
                     <div class="card-parent-div">
-                        <img src="assets/img/a.jpg" class="card-img-top img-card" alt="...">
+                        <img src="assets/img/3.png" class="card-img-top img-card" alt="...">
                         <div class="centered">E-Wallet</div>
                     </div>
                     <div class="card-body">
@@ -65,10 +72,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-3 col-12 bg-success top-row-div">
+            <div class="col-lg-3 col-12  top-row-div">
                 <div class="card card_radius" style="width: 18rem;">
                     <div class="card-parent-div">
-                        <img src="assets/img/a.jpg" class="card-img-top img-card" alt="...">
+                        <img src="assets/img/4.jpg" class="card-img-top img-card" alt="...">
                         <div class="centered">Brokerage</div>
                     </div>
                     <div class="card-body">
@@ -80,7 +87,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-lg-12 col-12 bg-danger second-row-div">
+            <div class="col-lg-12 col-12  second-row-div">
                 <a href="stock_data.php">
                     <div class="card card_radius second-row-card" >
                         <img src="assets/img/a.jpg" class="card-img-top img-card" alt="...">

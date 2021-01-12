@@ -6,6 +6,9 @@
             transform: translate(-50%,-50%);
 */
         }
+        .userName{
+            font-family: 'Josefin Sans', sans-serif;
+        }
         .top-row-div{
             padding: 30px;
             display: flex;

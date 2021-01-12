@@ -13,7 +13,14 @@
     <title>user signup || phd capital</title>
     <link rel="stylesheet" href="assets/signin.css">
 
-    
+        <style>
+            body{
+            background: url(assets/img/home1.jpg) no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center center;
+        }
+        </style>
 </head>
 <body>
     
@@ -21,9 +28,9 @@
 
 
 
-<div class="card bg-light">
+<div class="card " style="background-color: rgba(29,33,36,.8)">
 <article class="card-body mx-auto" style="max-width: 400px;">
-	<h4 class="card-title mt-3 text-center">Log in</h4>
+	<h4 class="card-title mt-3 text-center text-light">Log in</h4>
 	
 	<form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="post">
 	
@@ -51,7 +58,7 @@
 
     <label style="display: flex; justify-content: center"><a href="#">Forgot password?</a></label>
     <br>
-    <p class="text-center">Don't Have an account? <a href="signup.php">Create Account</a> </p>                                                                 
+    <p class="text-center text-light">Don't Have an account? <a href="signup.php">Create Account</a> </p>                                                                 
 </form>
 </article>
 </div> <!-- card.// -->
@@ -80,7 +87,7 @@
 
                         ?>
                         <script>
-                            alert('Login succesful');
+                            swal("Good job!", "Logged in Succesfully", "success");
                             window.location.replace('home.php');
                         </script>
                         <?php
