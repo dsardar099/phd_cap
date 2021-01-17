@@ -11,8 +11,9 @@ include('db_file/db_conn.php');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>user signup || phd capital</title>
+    <title>Signup || phd capital</title>
     <link rel="stylesheet" href="assets/signup.css">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/icon/phd_icon.ico">
     <style>
         .card-width {
             width: 100%;
@@ -31,6 +32,12 @@ include('db_file/db_conn.php');
             background-position: center center;
         }
         
+        ._logo{
+            width: 80px;
+            margin-top: -40px;
+        
+        }
+        
     </style>
 
 </head>
@@ -38,6 +45,9 @@ include('db_file/db_conn.php');
 <body>
     <div class="container">
         <div class="card  w-100" style="background-color: rgba(29,33,36,.8)">
+        <div class="text-center logo-bg">
+            <img src="assets/icon/phd_icon.png" alt="icon" class="_logo">
+        </div>
             <article class="card-body mx-auto card-width">
                 <h4 class="card-title mt-3 text-center text-light">Create Account</h4>
                 <p class="text-center text-light">Get started with your free account</p>
@@ -199,7 +209,7 @@ include('db_file/db_conn.php');
                         else{
                             ?>
                             <script>
-                                alert('r Some problem occurred, please try again');
+                                alert('Some problem occurred, please try again');
                             </script>
                             <?php
                         }
@@ -207,7 +217,7 @@ include('db_file/db_conn.php');
                     else {
                     ?>
                         <script>
-                            alert('res Some problem occurred, please try again');
+                            alert('Some problem occurred, please try again');
                         </script>
                 <?php
                     }
@@ -215,14 +225,14 @@ include('db_file/db_conn.php');
             } else {
                 ?>
                 <script>
-                    alert('email_check  Some problem occurred, please try again');
+                    alert('Some problem occurred, please try again');
                 </script>
             <?php
             }
         } else {
             ?>
             <script>
-                alert('con Some problem occurred, please try again');
+                alert('Some problem occurred, please try again');
             </script>
     <?php
         }

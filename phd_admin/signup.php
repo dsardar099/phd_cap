@@ -17,7 +17,7 @@
 <body class="text-center">  
     <main class="form-signin">
     <form action="<?php echo htmlentities($_SERVER['PHP_SELF']); ?>" method="POST">
-        <img class="mb-4" src="../assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+        <img class="mb-4" src="../assets/icon/phd_icon.png" alt="" width="72" height="57">
         <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
         <label for="inputName" class="visually-hidden">Name</label>
         <input type="text" id="inputName" class="form-control" name="a_name" placeholder="Name" required autofocus><br>
