@@ -1,5 +1,13 @@
 <?php
+    error_reporting(0);
+
     session_start();
+  
+
+    if (!isset($_SESSION) || $_SESSION['type'] != 'user') {
+        header('location:signin.php');
+    }
+
 
     include('external_links.php');
     include('db_file/db_conn.php');
